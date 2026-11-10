@@ -25,6 +25,11 @@ jobs:
       - name: Lancer les tests
         run: pytest -q
 
+      - name: Vérifier le style avec flake8
+        run: |
+          pip install flake8
+          flake8 app.py --max-line-length=88
+
   build:
     needs: test
     runs-on: ubuntu-latest
